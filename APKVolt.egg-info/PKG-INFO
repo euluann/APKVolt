@@ -1,8 +1,0 @@
-Metadata-Version: 2.4
-Name: APKVolt
-Version: 0.3.0
-Summary: Build Python projects into Android APKs
-Author-email: Luan da Silva Pestana <euluan.pestana@gmail.com>
-Requires-Dist: requests>=2.30
-Requires-Dist: pyaxml>=0.0.35
-Requires-Dist: Pillow
