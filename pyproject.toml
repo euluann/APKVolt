@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+apkvolt = ["*.jar"]
+
+[project]
+name = "APKVolt"
+version = "0.3.0"
+description = "Build Python projects into Android APKs"
+authors = [
+	{name = "Luan da Silva Pestana", email = "euluan.pestana@gmail.com"}
+]
+dependencies = [
+	"requests>=2.30",
+	"pyaxml>=0.0.35",
+	"Pillow"
+]
+
+[project.scripts]
+# Opcional: cria um comando para rodar no terminal
+apkvolt = "apkvolt.utils:main"
