@@ -7,7 +7,7 @@ apkvolt = ["*.jar"]
 
 [project]
 name = "APKVolt"
-version = "0.3.0"
+version = "1.0.0"
 description = "Build Python projects into Android APKs"
 authors = [
 	{name = "Luan da Silva Pestana", email = "euluan.pestana@gmail.com"}
