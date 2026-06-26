@@ -35,6 +35,12 @@ APKVolt works by:
 
 ## Installation
 
+From pip:
+
+```bash
+pip install apkvolt
+```
+
 From source:
 
 ```bash
