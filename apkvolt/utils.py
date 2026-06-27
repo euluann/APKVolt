@@ -23,7 +23,7 @@ def main():
 	subparsers = parser.add_subparsers(dest="command", required=True)
 	
 	# Subcomando "compile"
-	compile_parser = subparsers.add_parser("compile", help="Compile a project into APK")
+	compile_parser = subparsers.add_parser("build", help="Build a project into APK")
 	zipalign_parser = subparsers.add_parser("align", help="Align ZIP/APK entries.")
 	
 	# Subcomando "libs"
@@ -70,7 +70,7 @@ def main():
 	
 	args = parser.parse_args() # Faz o parsing automatico
 	
-	if args.command == "compile":
+	if args.command == "build":
 		log_level = args.log_level
 		if args.log_level is None:
 			log_level = "info"

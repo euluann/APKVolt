@@ -7,7 +7,7 @@ apkvolt = ["*.jar"]
 
 [project]
 name = "APKVolt"
-version = "1.0.2"
+version = "1.0.3"
 description = "Build Python projects into Android APKs"
 readme = "README.md"
 requires-python = ">=3.11"
