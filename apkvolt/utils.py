@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 from apkvolt import *
+from . import zipalign
 import argparse
 import os
 import logging
@@ -23,9 +24,28 @@ def main():
 	
 	# Subcomando "compile"
 	compile_parser = subparsers.add_parser("compile", help="Compile a project into APK")
+	zipalign_parser = subparsers.add_parser("align", help="Align ZIP/APK entries.")
 	
 	# Subcomando "libs"
 	libs_parser = subparsers.add_parser("libs", help="List supported libraries")
+	
+	# Adiciona os argumentos do zip de entrada e o zip de saida
+	zipalign_parser.add_argument("input_zip")
+	zipalign_parser.add_argument("output_zip")
+	
+	# Adiciona os argumentos opcionais para especificar os alinhamentos
+	zipalign_parser.add_argument(
+		"-a", "--alignment",
+		type=int,
+		default=4,
+		help="Alignment for regular files (default: 4)."
+	)
+	zipalign_parser.add_argument(
+		"-s", "--so-alignment",
+		type=int,
+		default=None,
+		help="Alignment for .so files (default: same as alignment)."
+	)
 	
 	# Argumento obrigatorio, indica onde esta o projeto a ser compilado
 	compile_parser.add_argument("path", help="Path to your project")
@@ -117,6 +137,15 @@ def main():
 		print("Base libraries included in APK:")
 		for lib in SUPPORTED_LIBS:
 			print(f" - {lib}")
+	elif args.command == "align":
+		# Chama a funcao de alinhamento com as especificacoes fornecidas
+		zipalign.align(
+			args.input_zip,
+			args.output_zip,
+			alignment=args.alignment,
+			so_alignment=args.so_alignment
+		)
+		print(f" ZIP/APK Aligned | {args.alignment} | so {args.so_alignment}")
 
 if __name__ == "__main__":
 	main()

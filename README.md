@@ -55,11 +55,7 @@ Requirements
 
 Python 3.11+
 
-Precompiled Android runtime template
-
 Linux or Termux environment recommended
-
-
 
 ---
 
@@ -78,6 +74,22 @@ apkvolt build . \
   --icon icon.png \
   --splash splash.png \
   --output app.apk
+```
+
+Align APK
+
+```bash
+apkvolt align \
+  app.apk \
+  aligned-app.apk \
+  -a 4 \
+  -s 4096
+```
+
+Show libraries included in APK
+
+```bash
+apkvolt libs
 ```
 
 ---
@@ -156,7 +168,7 @@ APKVolt build pipeline:
 
 Limitations
 
-Strong dependency on Python 3.11 runtime environment
+Strong dependency on Python 3.11 runtime environment for compile
 
 Not a full source-to-native compiler (template-based system)
 
